@@ -1,19 +1,19 @@
 server:
   connectionTimeout: -1
-  port: 8080
+  port: ${your.server.port}
   servlet:
     context-path: /vk-chat-bot
 api:
   vk:
     url: https://api.vk.com/method/
-    version: 5.236
+    version: ${your.version.vk.api}
 
 token:
-  confirmation: 913e94ab
-  access: vk1.a.wW8hqx4DjliFYFhmzec0Obrb8oab4VDMqVKVmqBIePrMRGvdBCTcc1H0k34whyuqeJOemtIODe4q_eCfbQnxEU0QNmNyV2l7j1AiVMSenc20SDQiIo8QYhw8qzzAh2dpWy6JF_AruRMtrnDEaOzxNSfqZRVFw-9neT_vMLoXhMAHf0hlvheun5y1y3skSazI8nwsYgcpkHz3UsJp2aTP7g
+  confirmation:  ${your.confirmation.token}
+  access: ${your.access.token}
 
 
 secret:
-  key: 11223344aa
+  key: ${your.secret.key}
 
 
