@@ -9,11 +9,10 @@ import lombok.*;
 @EqualsAndHashCode
 @ToString
 @AllArgsConstructor
-public class EventObject{
+public class EventObject {
     @JsonValue
     @JsonProperty("message")
     private Message message;
-
 
 
 }

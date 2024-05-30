@@ -10,7 +10,7 @@ import lombok.*;
 @EqualsAndHashCode
 @ToString
 @AllArgsConstructor
-public class Event{
+public class Event {
     @JsonProperty("type")
     private String type;
 
@@ -26,7 +26,6 @@ public class Event{
     @JsonValue
     @JsonProperty("object")
     private EventObject eventObject;
-
 
 
 }

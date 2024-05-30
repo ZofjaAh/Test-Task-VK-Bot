@@ -13,11 +13,11 @@ import java.security.SecureRandom;
 
 @Slf4j
 @Service
-public class RequestServiceImpl implements RequestService{
+public class RequestServiceImpl implements RequestService {
 
     @Override
     public void createResponse(Event event, String accessToken, String apiVersion, String vkUrl) {
-        MultiValueMap<String,String> parameters = new LinkedMultiValueMap<>();
+        MultiValueMap<String, String> parameters = new LinkedMultiValueMap<>();
         parameters.add("access_token", accessToken);
         parameters.add("user_id", String.valueOf(event.getEventObject().getMessage().getFromId()));
         parameters.add("random_id", String.valueOf(new SecureRandom().nextInt()));
@@ -26,14 +26,14 @@ public class RequestServiceImpl implements RequestService{
 
         WebClient webClient = WebClient.create(vkUrl);
         webClient.post().uri(uriBuilder -> uriBuilder
-                .path("/messages.send")
-                .queryParams(parameters)
-                .build())
-                .accept(MediaType.APPLICATION_JSON )
+                        .path("/messages.send")
+                        .queryParams(parameters)
+                        .build())
+                .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .bodyToMono(String.class)
-                .doOnError(error-> log.error("An error has occurred {}", error.getLocalizedMessage()))
-                .onErrorResume(e-> Mono.empty())
+                .doOnError(error -> log.error("An error has occurred {}", error.getLocalizedMessage()))
+                .onErrorResume(e -> Mono.empty())
                 .block();
     }
 }

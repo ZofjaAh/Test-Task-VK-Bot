@@ -1,7 +1,6 @@
 package test.task.vk_chat_bot.api.controller;
 
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,14 +13,13 @@ import test.task.vk_chat_bot.model.Event;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping(value = VkBotController.API_MESSAGE , produces = MediaType.APPLICATION_JSON_VALUE)
-public class VkBotController{
+@RequestMapping(value = VkBotController.API_MESSAGE, produces = MediaType.APPLICATION_JSON_VALUE)
+public class VkBotController {
     public static final String API_MESSAGE = "/api/message";
     private final VkBotService vkBotService;
 
     @PostMapping
-    public ResponseEntity<?> ResponseCreating(@RequestBody Event event) throws Exception
-    {
+    public ResponseEntity<?> ResponseCreating(@RequestBody Event event) {
         return vkBotService.createResponse(event);
     }
 

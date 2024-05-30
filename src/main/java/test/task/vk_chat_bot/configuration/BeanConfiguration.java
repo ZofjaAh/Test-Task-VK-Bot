@@ -25,8 +25,9 @@ public class BeanConfiguration {
 
     @Value("${api.vk.url}")
     public String vkUrl;
+
     @Bean
-    public ObjectMapper objectMapper(){
+    public ObjectMapper objectMapper() {
         return new ObjectMapper()
                 .registerModule(new JavaTimeModule())
                 .registerModule(new Jdk8Module())
